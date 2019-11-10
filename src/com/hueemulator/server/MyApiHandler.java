@@ -78,7 +78,7 @@ class MyApiHandler implements HttpHandler {
         }
         // Check if username is on the whitelist.  If not a JSON "Unauthorized User" response is sent back.
         else if (!configurationAPIhandler.isValidUserName(bridgeConfiguration, responseBody, urlElements)) {            
-            configurationAPIhandler.returnErrorResponse("1", "unauthorized user", "/", responseBody);
+            configurationAPIhandler.returnErrorResponse(1, "unauthorized user", "/", responseBody);
             return;
         }
         
@@ -107,7 +107,7 @@ class MyApiHandler implements HttpHandler {
             boolean isValidJSON = Utils.isJSONValid(jSONString);
             
             if (!isValidJSON) {     
-                configurationAPIhandler.returnErrorResponse("2", "body contains invalid json", url, responseBody);
+                configurationAPIhandler.returnErrorResponse(2, "body contains invalid json", url, responseBody);
             }
 
             controller.addTextToConsole(jSONString, Color.gray, controller.showRequestJson());   // Show the JSON we are sending to the Bridge (i.e. Emulator) in the console.            

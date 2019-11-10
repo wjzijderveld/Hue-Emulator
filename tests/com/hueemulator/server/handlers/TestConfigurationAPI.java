@@ -37,7 +37,7 @@ public class TestConfigurationAPI extends TestCase {
     public void testBadJSON() throws Exception {
         String jsonToPut = "{badJson here . . \"lights\": [\"1\",\"2\"],\"name\": \"Test Group\"}";
         String response="";
-        String expected="[{\"error\":{\"address\":\"/api/newdeveloper/groups\",\"description\":\"body contains invalid json\",\"type\":\"2\"}}]";
+        String expected="[{\"error\":{\"address\":\"/api/newdeveloper/groups\",\"description\":\"body contains invalid json\",\"type\":2}}]";
         String url = baseURL + "newdeveloper/groups";
         response = httpTester.doPutOrPost(url, jsonToPut, "POST");
         
@@ -51,7 +51,7 @@ public class TestConfigurationAPI extends TestCase {
         String url = baseURL;
         String response="";
         String jsonToPut = "{\"devicetype\":\"test user\"}";
-        String expected  = "[{\"error\":{\"address\":\"\",\"description\":\"link button not pressed\",\"type\":\"101\"}}]";
+        String expected  = "[{\"error\":{\"address\":\"\",\"description\":\"link button not pressed\",\"type\":101}}]";
         
         response= httpTester.doPutOrPost(url, jsonToPut, "POST");
         assertTrue(TestUtils.jsonsArrayEqual(response, expected));       

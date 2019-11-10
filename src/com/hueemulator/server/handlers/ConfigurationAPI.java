@@ -198,7 +198,7 @@ public class ConfigurationAPI {
     public void createNewUsername(PHBridgeConfiguration bridgeConfiguration, OutputStream responseBody, String requestMethod) {
 
         if (!requestMethod.equalsIgnoreCase("POST")) {
-            returnErrorResponse("3", "method, " + requestMethod + ", not available for resource, /", "/", responseBody);
+            returnErrorResponse(3, "method, " + requestMethod + ", not available for resource, /", "/", responseBody);
         }
 
     }
@@ -220,7 +220,7 @@ public class ConfigurationAPI {
     }
 
 
-    public void returnErrorResponse(String errorType, String description, String address, OutputStream responseBody) {
+    public void returnErrorResponse(int errorType, String description, String address, OutputStream responseBody) {
         JSONObject errorObject = new JSONObject();
 
         JSONArray responseArray = new JSONArray();
